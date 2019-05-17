@@ -19,7 +19,7 @@
     ]
   },
   "scripts": {
-    "test": "jest --coverage",
+    "test": "jest -u --coverage",
     "watch": "webpack-dev-server --mode development --open --hot",
     "build": "webpack --mode production",
     "prettier": "prettier --write '**/*.{js,jsx}'",
