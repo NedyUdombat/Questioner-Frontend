@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Index should render correctly 1`] = `
+<div>
+  <div
+    className="jumbotron"
+  >
+    <Navbar />
+    <div
+      className="hero-image"
+    >
+      <div
+        className="hero-text"
+      >
+        <h1>
+          Questioner
+        </h1>
+        <p>
+          An application to crowd-source questions for a meetup.
+        </p>
+        <a
+          href="#"
+        >
+          <Button
+            className="btn btn-dark-alt"
+            name="button"
+            type="button"
+            value="REGISTER"
+          />
+        </a>
+      </div>
+    </div>
+  </div>
+  <ConnectFunction />
+  <footer
+    id="non-fixed-footer"
+  >
+    <p>
+      Made by Edidiong Udombat @ Andela 
+    </p>
+  </footer>
+</div>
+`;
