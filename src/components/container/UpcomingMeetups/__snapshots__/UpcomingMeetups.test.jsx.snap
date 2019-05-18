@@ -1,0 +1,273 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UpcomingMeetups should render correctly 1`] = `
+<UpcomingMeetups
+  getUpcomingMeetups={
+    [MockFunction] {
+      "calls": Array [
+        Array [],
+      ],
+      "results": Array [
+        Object {
+          "type": "return",
+          "value": undefined,
+        },
+      ],
+    }
+  }
+  meetups={Array []}
+>
+  <div>
+    <div
+      className="d-flex justify-content-center"
+    >
+      <div
+        className="title-tag"
+      >
+        <p>
+          Upcoming Meetups
+        </p>
+        <div
+          className="d-flex justify-content-center"
+        >
+          <div
+            className="dash"
+          />
+        </div>
+      </div>
+    </div>
+    <div
+      className="section group"
+    >
+      <p>
+        No Upcoming meetups
+      </p>
+    </div>
+  </div>
+</UpcomingMeetups>
+`;
+
+exports[`UpcomingMeetups should render correctly with all props 1`] = `
+<UpcomingMeetups
+  getUpcomingMeetups={
+    [MockFunction] {
+      "calls": Array [
+        Array [],
+      ],
+      "results": Array [
+        Object {
+          "type": "return",
+          "value": undefined,
+        },
+      ],
+    }
+  }
+  meetups={
+    Array [
+      Object {
+        "happening_on": "2020-05-18T21:28:41+0000",
+        "id": "fhwjicgyvufbewf",
+        "image": "http://dummyinge.jpg",
+        "organizer_name": "organizer_name",
+        "topic": "topic",
+      },
+    ]
+  }
+>
+  <div>
+    <div
+      className="d-flex justify-content-center"
+    >
+      <div
+        className="title-tag"
+      >
+        <p>
+          Upcoming Meetups
+        </p>
+        <div
+          className="d-flex justify-content-center"
+        >
+          <div
+            className="dash"
+          />
+        </div>
+      </div>
+    </div>
+    <div
+      className="section group"
+    >
+      <div
+        className="col span_1_of_4"
+        key="fhwjicgyvufbewf"
+      >
+        <div
+          className="d-flex justify-content-center"
+        >
+          <div
+            className="product-card"
+          >
+            <a
+              href="#"
+            >
+              <div
+                className="card-image-top"
+              >
+                <Image
+                  alt="fr"
+                  className="product-image"
+                  src="http://dummyinge.jpg"
+                >
+                  <img
+                    alt="fr"
+                    className="product-image"
+                    src="http://dummyinge.jpg"
+                  />
+                </Image>
+              </div>
+              <div
+                className="product-card-details"
+              >
+                <p
+                  className="f-20 "
+                >
+                  <b>
+                    topic
+                  </b>
+                </p>
+                <div
+                  className="d-flex justify-content-between mt-1"
+                >
+                  <small
+                    className="f-12"
+                  >
+                    <i>
+                      organizer_name
+                    </i>
+                  </small>
+                  <p
+                    className="text-blue"
+                  >
+                    18 May 2020
+                  </p>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</UpcomingMeetups>
+`;
+
+exports[`UpcomingMeetups should render correctly with all props and without image 1`] = `
+<UpcomingMeetups
+  getUpcomingMeetups={
+    [MockFunction] {
+      "calls": Array [
+        Array [],
+      ],
+      "results": Array [
+        Object {
+          "type": "return",
+          "value": undefined,
+        },
+      ],
+    }
+  }
+  meetups={
+    Array [
+      Object {
+        "happening_on": "2020-05-18T21:28:41+0000",
+        "id": "fhwjicgyvufbewf",
+        "organizer_name": "organizer_name",
+        "topic": "topic",
+      },
+    ]
+  }
+>
+  <div>
+    <div
+      className="d-flex justify-content-center"
+    >
+      <div
+        className="title-tag"
+      >
+        <p>
+          Upcoming Meetups
+        </p>
+        <div
+          className="d-flex justify-content-center"
+        >
+          <div
+            className="dash"
+          />
+        </div>
+      </div>
+    </div>
+    <div
+      className="section group"
+    >
+      <div
+        className="col span_1_of_4"
+        key="fhwjicgyvufbewf"
+      >
+        <div
+          className="d-flex justify-content-center"
+        >
+          <div
+            className="product-card"
+          >
+            <a
+              href="#"
+            >
+              <div
+                className="card-image-top"
+              >
+                <Image
+                  alt="fr"
+                  className="product-image"
+                  src="https://res.cloudinary.com/nedy123/image/upload/v1558200381/demo/image_2.4.png"
+                >
+                  <img
+                    alt="fr"
+                    className="product-image"
+                    src="https://res.cloudinary.com/nedy123/image/upload/v1558200381/demo/image_2.4.png"
+                  />
+                </Image>
+              </div>
+              <div
+                className="product-card-details"
+              >
+                <p
+                  className="f-20 "
+                >
+                  <b>
+                    topic
+                  </b>
+                </p>
+                <div
+                  className="d-flex justify-content-between mt-1"
+                >
+                  <small
+                    className="f-12"
+                  >
+                    <i>
+                      organizer_name
+                    </i>
+                  </small>
+                  <p
+                    className="text-blue"
+                  >
+                    18 May 2020
+                  </p>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</UpcomingMeetups>
+`;

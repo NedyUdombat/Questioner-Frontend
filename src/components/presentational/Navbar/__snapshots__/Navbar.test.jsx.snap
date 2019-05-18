@@ -1,0 +1,67 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Navbar should render correctly 1`] = `
+<Navbar>
+  <div>
+    <div
+      className="nav"
+    >
+      <input
+        id="nav-check"
+        type="checkbox"
+      />
+      <div
+        className="nav-header"
+      >
+        <p
+          className="nav-title"
+        >
+          Questioner
+        </p>
+      </div>
+      <div
+        className="nav-btn"
+      >
+        <label
+          htmlFor="nav-check"
+        >
+          <Icon
+            as="i"
+            color="grey"
+            name="bars"
+            size="big"
+          >
+            <i
+              aria-hidden="true"
+              className="grey bars big icon"
+              onClick={[Function]}
+            />
+          </Icon>
+        </label>
+      </div>
+      <div
+        className="nav-links"
+      >
+        <a
+          className="btn btn-transparent"
+          href="#"
+        >
+          MEETUPS
+        </a>
+        <a
+          className="btn btn-dark-alt"
+          href="#"
+        >
+          LOGIN
+        </a>
+        <a
+          className="btn btn-white-alt-hover"
+          href="#"
+        >
+          REGISTER
+        </a>
+      </div>
+    </div>
+  </div>
+</Navbar>
+`;

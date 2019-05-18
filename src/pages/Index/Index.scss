@@ -1,0 +1,62 @@
+@import '../../assets/sass/index';
+
+body {
+  background-color: $secondary-white;
+}
+
+.jumbotron {
+  background-image: linear-gradient(rgba(0, 0, 0, .8), rgba(0, 0, 0, .5)), url('https://res.cloudinary.com/nedy123/image/upload/v1558178618/emily-morter-188019-unsplash_gfjg2f.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 100vh;
+  padding: 2% 6%;
+};
+
+.hero-image {
+  align-items: center;
+  display: flex;
+  height: 75vh;
+  justify-content: center;
+  text-align: center;
+}
+
+.hero-text {
+  color: #fff;
+  text-align: center;
+}
+
+.hero-text h1 {
+  font-family: $bitter;
+  font-size: 8rem;
+  font-weight: lighter;
+}
+
+.hero-text p {
+  font-size: 1.125rem;
+  margin-top: 1.25rem;
+}
+
+.hero-text button {
+  margin: auto;
+  width: 50%;
+}
+
+footer {
+  align-items: center;
+  background: #000203;
+  bottom: 0;
+  color: #f2f2f2;
+  display: flex;
+  height: 5vh;
+  justify-content: center;
+  padding: 0 20px;
+  position: fixed;
+  text-align: center;
+  width: 100%;
+}
+
+#non-fixed-footer {
+  position: relative;
+}
+

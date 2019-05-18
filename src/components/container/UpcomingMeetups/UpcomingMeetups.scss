@@ -1,0 +1,128 @@
+@import '../../../assets/sass/index';
+
+.product-card {
+  background-color: $primary-white;
+  border-radius: .1875rem;
+  height: 21.875rem;
+  max-width: 18.75rem;
+  min-height: 100%;
+  min-width: 15.625rem;
+}
+
+.product-card:hover {
+  box-shadow: .0625rem .75rem 1rem 0 rgba(0, 0, 0, .24), .0625rem 1.0625rem 3.125rem 0 rgba(0, 0, 0, .19);
+  transition: .7s;
+}
+
+.product-card .card-image-top {
+  height: 70%;
+}
+
+.product-card .product-image {
+  height: 100%;
+  width: 100%;
+}
+
+.product-card .product-card-details {
+  padding: .625rem;
+}
+
+.product-card .product-card-details .d-flex {
+  margin-top: .625rem;
+}
+
+.title-tag {
+  margin-top: .625rem;
+}
+
+.title-tag p {
+  font-family: $bitter;
+  font-size: 2rem;
+  margin-bottom: .625rem;
+}
+
+.title-tag .dash {
+  background-color: $primary-black;
+  height: .1875rem;
+  width: 30%;
+}
+
+.section {
+  clear: both;
+  margin: 0;
+  padding: 3.125rem;
+}
+
+.col {
+  display: block;
+  float: left;
+  margin: 1% 0;
+}
+
+.group:before,
+.group:after {
+  content: '';
+  display: table;
+}
+
+.group:after {
+  clear: both;
+}
+
+.group {
+  zoom: 1;
+}
+
+.span_1_of_4 {
+  width: 20%;
+}
+
+@media only screen and (max-width: 47.5rem) {
+  .col {
+    margin: 1% 0;
+  }
+
+  .span_1_of_4 {
+    width: 100%;
+  }
+}
+
+@media (min-width: 47.5rem) and (max-width: 61.25rem) {
+  .col {
+    display: block;
+    float: left;
+    margin: 3% 0;
+  }
+
+  .span_1_of_4 {
+    width: 50%;
+  }
+
+  .section {
+    padding: 0;
+  }
+
+  .sm .title-tag p {
+    display: none;
+  }
+}
+
+@media (min-width: 61.25rem) and (max-width: 64rem) {
+  .col {
+    display: block;
+    float: left;
+    margin: 3% 0;
+  }
+
+  .span_1_of_4 {
+    width: 30%;
+  }
+
+  .section {
+    padding: 0;
+  }
+
+  .sm .title-tag p {
+    display: none;
+  }
+}
