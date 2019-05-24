@@ -1,0 +1,28 @@
+@import '../../../assets/sass/index';
+
+.form-control-input {
+  border: .0625rem solid $secondary-white-2;
+  border-radius: .25rem;
+  color: $secondary-grey;
+  font-size: 1rem;
+  height: 100%;
+  line-height: 1.25rem;
+  padding-left: .9375rem !important;
+  width: 100%;
+}
+
+.form-control-input:hover {
+  border: .0625rem solid $primary-black;
+}
+
+.form-control-input:focus {
+  border: .0625rem solid $primary-black;
+  outline: 0;
+}
+
+.form-control-input::placeholder {
+  color: $primary-grey;
+  font-family: $raleway;
+  font-size: 1rem;
+  line-height: 1.25rem;
+}

@@ -1,67 +1,117 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Navbar should render correctly 1`] = `
-<Navbar>
-  <div>
-    <div
-      className="nav"
-    >
-      <input
-        id="nav-check"
-        type="checkbox"
-      />
-      <div
-        className="nav-header"
-      >
-        <p
-          className="nav-title"
+<BrowserRouter>
+  <Router
+    history={
+      Object {
+        "action": "POP",
+        "block": [Function],
+        "createHref": [Function],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "length": 1,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "pathname": "/",
+          "search": "",
+          "state": undefined,
+        },
+        "push": [Function],
+        "replace": [Function],
+      }
+    }
+  >
+    <Navbar>
+      <div>
+        <div
+          className="nav undefined"
         >
-          Questioner
-        </p>
-      </div>
-      <div
-        className="nav-btn"
-      >
-        <label
-          htmlFor="nav-check"
-        >
-          <Icon
-            as="i"
-            color="grey"
-            name="bars"
-            size="big"
+          <input
+            id="nav-check"
+            type="checkbox"
+          />
+          <div
+            className="nav-header"
           >
-            <i
-              aria-hidden="true"
-              className="grey bars big icon"
-              onClick={[Function]}
-            />
-          </Icon>
-        </label>
+            <Link
+              className="nav-title"
+              to="/"
+            >
+              <a
+                className="nav-title"
+                href="/"
+                onClick={[Function]}
+              >
+                Questioner
+              </a>
+            </Link>
+          </div>
+          <div
+            className="nav-btn"
+          >
+            <label
+              htmlFor="nav-check"
+            >
+              <Icon
+                as="i"
+                color="grey"
+                name="bars"
+                size="big"
+              >
+                <i
+                  aria-hidden="true"
+                  className="grey bars big icon"
+                  onClick={[Function]}
+                />
+              </Icon>
+            </label>
+          </div>
+          <div
+            className="nav-links"
+          >
+            <Link
+              className="btn btn-transparent"
+              href="#"
+            >
+              <a
+                className="btn btn-transparent"
+                href=""
+                onClick={[Function]}
+              >
+                MEETUPS
+              </a>
+            </Link>
+            <Link
+              className="btn btn-dark-alt"
+              href="#"
+            >
+              <a
+                className="btn btn-dark-alt"
+                href=""
+                onClick={[Function]}
+              >
+                LOGIN
+              </a>
+            </Link>
+            <Link
+              className="btn btn-white-alt-hover"
+              to="/register"
+            >
+              <a
+                className="btn btn-white-alt-hover"
+                href="/register"
+                onClick={[Function]}
+              >
+                REGISTER
+              </a>
+            </Link>
+          </div>
+        </div>
       </div>
-      <div
-        className="nav-links"
-      >
-        <a
-          className="btn btn-transparent"
-          href="#"
-        >
-          MEETUPS
-        </a>
-        <a
-          className="btn btn-dark-alt"
-          href="#"
-        >
-          LOGIN
-        </a>
-        <a
-          className="btn btn-white-alt-hover"
-          href="#"
-        >
-          REGISTER
-        </a>
-      </div>
-    </div>
-  </div>
-</Navbar>
+    </Navbar>
+  </Router>
+</BrowserRouter>
 `;
