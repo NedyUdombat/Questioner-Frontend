@@ -9,6 +9,7 @@ const Router = () => {
     <Switch>
       <Route path="/" exact component={Index} />
       <Route path="/register" exact component={Authentication} />
+      <Route path="/login" exact component={Authentication} />
     </Switch>
   );
 };

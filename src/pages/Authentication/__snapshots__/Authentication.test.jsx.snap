@@ -1,0 +1,119 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Authentication should render correctly 1`] = `
+<Router
+  history={
+    Object {
+      "action": "POP",
+      "block": [Function],
+      "createHref": [Function],
+      "go": [Function],
+      "goBack": [Function],
+      "goForward": [Function],
+      "length": 1,
+      "listen": [Function],
+      "location": Object {
+        "hash": "",
+        "pathname": "/",
+        "search": "",
+        "state": undefined,
+      },
+      "push": [Function],
+      "replace": [Function],
+    }
+  }
+>
+  <Authentication
+    match={
+      Object {
+        "path": "/register",
+      }
+    }
+  />
+</Router>
+`;
+
+exports[`Authentication should render correctly with Login 1`] = `
+<Router
+  history={
+    Object {
+      "action": "POP",
+      "block": [Function],
+      "createHref": [Function],
+      "go": [Function],
+      "goBack": [Function],
+      "goForward": [Function],
+      "length": 1,
+      "listen": [Function],
+      "location": Object {
+        "hash": "",
+        "pathname": "/",
+        "search": "",
+        "state": undefined,
+      },
+      "push": [Function],
+      "replace": [Function],
+    }
+  }
+>
+  <Authentication
+    match={
+      Object {
+        "path": "/login",
+      }
+    }
+  />
+</Router>
+`;
+
+exports[`Authentication should render correctly with Login 2`] = `
+<div>
+  <Navbar
+    className="nav-dark"
+  />
+  <div
+    className="auth"
+  >
+    <div
+      className="left"
+    >
+      <Image
+        alt="Authentication Illustration"
+        className="wh-100"
+        src="https://res.cloudinary.com/nedy123/image/upload/v1558220743/demo/auth-illustration.svg"
+      />
+    </div>
+    <div
+      className="right"
+    >
+      <ConnectFunction />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Authentication should render correctly with register 1`] = `
+<div>
+  <Navbar
+    className="nav-dark"
+  />
+  <div
+    className="auth"
+  >
+    <div
+      className="left"
+    >
+      <Image
+        alt="Authentication Illustration"
+        className="wh-100"
+        src="https://res.cloudinary.com/nedy123/image/upload/v1558220743/demo/auth-illustration.svg"
+      />
+    </div>
+    <div
+      className="right"
+    >
+      <ConnectFunction />
+    </div>
+  </div>
+</div>
+`;

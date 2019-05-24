@@ -74,11 +74,11 @@ exports[`Navbar should render correctly 1`] = `
           >
             <Link
               className="btn btn-transparent"
-              href="#"
+              to="/login"
             >
               <a
                 className="btn btn-transparent"
-                href=""
+                href="/login"
                 onClick={[Function]}
               >
                 MEETUPS
@@ -86,11 +86,11 @@ exports[`Navbar should render correctly 1`] = `
             </Link>
             <Link
               className="btn btn-dark-alt"
-              href="#"
+              to="/login"
             >
               <a
                 className="btn btn-dark-alt"
-                href=""
+                href="/login"
                 onClick={[Function]}
               >
                 LOGIN

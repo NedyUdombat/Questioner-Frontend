@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Input should render correctly 1`] = `
+<Input
+  className="form-control"
+  minLength="20"
+  name="name"
+  onChange={[MockFunction]}
+  pattern="($^+[a-z])"
+  placeholder="placeholder"
+  required="required"
+  title="title"
+  type="text"
+  value="value"
+>
+  <input
+    className="form-control"
+    minLength="20"
+    name="name"
+    onChange={[MockFunction]}
+    pattern="($^+[a-z])"
+    placeholder="placeholder"
+    required="required"
+    title="title"
+    type="text"
+    value="value"
+  />
+</Input>
+`;
