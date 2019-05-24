@@ -64,7 +64,7 @@ export class Register extends React.Component {
         >
           Register
         </p>
-        <div className="register-card">
+        <div className="auth-card">
           <form onSubmit={this.submitHandler}>
             {isLoading && (
               <Dimmer active>
@@ -174,7 +174,7 @@ export class Register extends React.Component {
               }}
             >
               Already have an account? Log in{' '}
-              <Link to="/" className="text-blue">
+              <Link to="/login" className="text-blue">
                 here
               </Link>
             </p>

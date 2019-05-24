@@ -1,0 +1,389 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Register should render correctly 1`] = `
+<BrowserRouter>
+  <Router
+    history={
+      Object {
+        "action": "POP",
+        "block": [Function],
+        "createHref": [Function],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "length": 1,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "pathname": "/",
+          "search": "",
+          "state": undefined,
+        },
+        "push": [Function],
+        "replace": [Function],
+      }
+    }
+  >
+    <Login
+      authenticate={[MockFunction]}
+      isLoading={false}
+    >
+      <div>
+        <p
+          className="f-50 text-center font-title"
+          style={
+            Object {
+              "marginBottom": "0.625rem",
+            }
+          }
+        >
+          Login
+        </p>
+        <div
+          className="auth-card"
+        >
+          <form
+            onSubmit={[Function]}
+          >
+            <div
+              className="form-group"
+              style={
+                Object {
+                  "display": "block",
+                }
+              }
+            >
+              <div
+                className="input-div d-flex justify-content-center"
+                style={
+                  Object {
+                    "marginBottom": "1rem",
+                  }
+                }
+              >
+                <Input
+                  className="form-control-input"
+                  name="email"
+                  onChange={[Function]}
+                  placeholder="Email"
+                  required="required"
+                  type="email"
+                  value=""
+                >
+                  <input
+                    className="form-control-input"
+                    name="email"
+                    onChange={[Function]}
+                    placeholder="Email"
+                    required="required"
+                    type="email"
+                    value=""
+                  />
+                </Input>
+              </div>
+              <div
+                className="input-div d-flex justify-content-center"
+              >
+                <Input
+                  className="form-control-input"
+                  name="password"
+                  onChange={[Function]}
+                  pattern="(?=.*[a-z]).{6,}"
+                  placeholder="Password"
+                  required="required"
+                  title="Must be 6 characters or more and contain at least lowercase letter"
+                  type="password"
+                  value=""
+                >
+                  <input
+                    className="form-control-input"
+                    name="password"
+                    onChange={[Function]}
+                    pattern="(?=.*[a-z]).{6,}"
+                    placeholder="Password"
+                    required="required"
+                    title="Must be 6 characters or more and contain at least lowercase letter"
+                    type="password"
+                    value=""
+                  />
+                </Input>
+              </div>
+            </div>
+            <div
+              style={
+                Object {
+                  "marginTop": ".9235rem",
+                }
+              }
+            >
+              <Button
+                className="btn-dark"
+                type="submit"
+                value="WELCOME BACK"
+              >
+                <button
+                  className="btn btn-dark"
+                  type="submit"
+                >
+                  WELCOME BACK
+                </button>
+              </Button>
+            </div>
+            <p
+              className="f-20 text-grey text-center"
+              style={
+                Object {
+                  "marginTop": ".9235rem",
+                }
+              }
+            >
+              Don't have an account? Register
+               
+              <Link
+                className="text-blue"
+                to="/register"
+              >
+                <a
+                  className="text-blue"
+                  href="/register"
+                  onClick={[Function]}
+                >
+                  here
+                </a>
+              </Link>
+            </p>
+          </form>
+        </div>
+      </div>
+    </Login>
+  </Router>
+</BrowserRouter>
+`;
+
+exports[`Register should render correctly with loader 1`] = `
+<BrowserRouter>
+  <Router
+    history={
+      Object {
+        "action": "POP",
+        "block": [Function],
+        "createHref": [Function],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "length": 1,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "pathname": "/",
+          "search": "",
+          "state": undefined,
+        },
+        "push": [Function],
+        "replace": [Function],
+      }
+    }
+  >
+    <Login
+      authenticate={[MockFunction]}
+      isLoading={true}
+    >
+      <div>
+        <p
+          className="f-50 text-center font-title"
+          style={
+            Object {
+              "marginBottom": "0.625rem",
+            }
+          }
+        >
+          Login
+        </p>
+        <div
+          className="auth-card"
+        >
+          <form
+            onSubmit={[Function]}
+          >
+            <Dimmer
+              active={true}
+            >
+              <DimmerInner
+                active={true}
+              >
+                <Ref
+                  innerRef={
+                    Object {
+                      "current": <div
+                        class="ui active transition visible dimmer"
+                        style="display: flex;"
+                      >
+                        <div
+                          class="content"
+                        >
+                          <div
+                            class="ui large text loader"
+                          >
+                            Loading
+                          </div>
+                        </div>
+                      </div>,
+                    }
+                  }
+                >
+                  <RefFindNode
+                    innerRef={
+                      Object {
+                        "current": <div
+                          class="ui active transition visible dimmer"
+                          style="display: flex;"
+                        >
+                          <div
+                            class="content"
+                          >
+                            <div
+                              class="ui large text loader"
+                            >
+                              Loading
+                            </div>
+                          </div>
+                        </div>,
+                      }
+                    }
+                  >
+                    <div
+                      className="ui active transition visible dimmer"
+                      onClick={[Function]}
+                    >
+                      <div
+                        className="content"
+                      >
+                        <Loader
+                          size="large"
+                        >
+                          <div
+                            className="ui large text loader"
+                          >
+                            Loading
+                          </div>
+                        </Loader>
+                      </div>
+                    </div>
+                  </RefFindNode>
+                </Ref>
+              </DimmerInner>
+            </Dimmer>
+            <div
+              className="form-group"
+              style={
+                Object {
+                  "display": "block",
+                }
+              }
+            >
+              <div
+                className="input-div d-flex justify-content-center"
+                style={
+                  Object {
+                    "marginBottom": "1rem",
+                  }
+                }
+              >
+                <Input
+                  className="form-control-input"
+                  name="email"
+                  onChange={[Function]}
+                  placeholder="Email"
+                  required="required"
+                  type="email"
+                  value=""
+                >
+                  <input
+                    className="form-control-input"
+                    name="email"
+                    onChange={[Function]}
+                    placeholder="Email"
+                    required="required"
+                    type="email"
+                    value=""
+                  />
+                </Input>
+              </div>
+              <div
+                className="input-div d-flex justify-content-center"
+              >
+                <Input
+                  className="form-control-input"
+                  name="password"
+                  onChange={[Function]}
+                  pattern="(?=.*[a-z]).{6,}"
+                  placeholder="Password"
+                  required="required"
+                  title="Must be 6 characters or more and contain at least lowercase letter"
+                  type="password"
+                  value=""
+                >
+                  <input
+                    className="form-control-input"
+                    name="password"
+                    onChange={[Function]}
+                    pattern="(?=.*[a-z]).{6,}"
+                    placeholder="Password"
+                    required="required"
+                    title="Must be 6 characters or more and contain at least lowercase letter"
+                    type="password"
+                    value=""
+                  />
+                </Input>
+              </div>
+            </div>
+            <div
+              style={
+                Object {
+                  "marginTop": ".9235rem",
+                }
+              }
+            >
+              <Button
+                className="btn-dark"
+                type="submit"
+                value="WELCOME BACK"
+              >
+                <button
+                  className="btn btn-dark"
+                  type="submit"
+                >
+                  WELCOME BACK
+                </button>
+              </Button>
+            </div>
+            <p
+              className="f-20 text-grey text-center"
+              style={
+                Object {
+                  "marginTop": ".9235rem",
+                }
+              }
+            >
+              Don't have an account? Register
+               
+              <Link
+                className="text-blue"
+                to="/register"
+              >
+                <a
+                  className="text-blue"
+                  href="/register"
+                  onClick={[Function]}
+                >
+                  here
+                </a>
+              </Link>
+            </p>
+          </form>
+        </div>
+      </div>
+    </Login>
+  </Router>
+</BrowserRouter>
+`;

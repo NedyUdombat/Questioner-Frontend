@@ -24,10 +24,10 @@ const Navbar = ({ className }) => {
         </div>
 
         <div className="nav-links">
-          <Link href="#" className="btn btn-transparent">
+          <Link to="/login" className="btn btn-transparent">
             MEETUPS
           </Link>
-          <Link href="#" className="btn btn-dark-alt">
+          <Link to="/login" className="btn btn-dark-alt">
             LOGIN
           </Link>
           <Link to="/register" className="btn btn-white-alt-hover">

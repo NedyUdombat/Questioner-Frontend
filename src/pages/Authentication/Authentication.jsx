@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import Navbar from '../../components/presentational/Navbar/Navbar';
 import Image from '../../components/presentational/Image/Image';
 import Register from '../../components/container/Register/Register';
+import Login from '../../components/container/Login/Login';
 
 // styles
 import './Authentication.scss';
@@ -22,7 +23,7 @@ const Authentication = ({ match }) => {
           />
         </div>
         <div className="right">
-          {match.path === '/register' ? <Register /> : <p>This is for Login</p>}
+          {match.path === '/register' ? <Register /> : <Login />}
         </div>
       </div>
     </div>

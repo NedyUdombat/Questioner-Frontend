@@ -1,11 +1,14 @@
 import swal from '@sweetalert/with-react';
 
-import { registrationRequest } from '../../api/auth';
+import { registrationRequest, authenticationRequest } from '../../api/auth';
 import { setToken } from '../../api/helpers';
 
 export const REGISTER_REQUEST = 'REGISTER_REQUEST';
 export const REGISTER_SUCCESS = 'REGISTER_SUCCESS';
 export const REGISTER_ERROR = 'REGISTER_ERROR';
+export const AUTHENTICATION_REQUEST = 'AUTHENTICATION_REQUEST';
+export const AUTHENTICATION_SUCCESS = 'AUTHENTICATION_SUCCESS';
+export const AUTHENTICATION_ERROR = 'AUTHENTICATION_ERROR';
 
 export const registrationInitialized = () => ({
   type: REGISTER_REQUEST,
@@ -20,6 +23,19 @@ export const registrationError = error => ({
   error,
 });
 
+export const authenticationInitialized = () => ({
+  type: AUTHENTICATION_REQUEST,
+});
+
+export const authenticationSuccess = () => ({
+  type: AUTHENTICATION_SUCCESS,
+});
+
+export const authenticationError = error => ({
+  type: AUTHENTICATION_ERROR,
+  error,
+});
+
 export const register = userData => async dispatch => {
   try {
     dispatch(registrationInitialized());
@@ -28,7 +44,7 @@ export const register = userData => async dispatch => {
     dispatch(registrationSuccess());
     swal({
       title: 'Welcome!',
-      text: 'Your account has been created',
+      text: `Hi ${data.data.username} Your account has been created`,
       icon: 'success',
       button: 'CONTINUE',
     });
@@ -36,9 +52,32 @@ export const register = userData => async dispatch => {
     swal({
       title: 'Error!',
       icon: 'error',
+      text: `${error.response.data.message}`,
       button: 'RETRY',
     });
-    dispatch(registrationError(error.response));
+    dispatch(registrationError(error.response.data));
+  }
+};
+
+export const authenticate = userData => async dispatch => {
+  try {
+    dispatch(authenticationInitialized());
+    const { data } = await authenticationRequest(userData);
+    setToken(data.jwToken);
+    dispatch(authenticationSuccess());
+    swal({
+      title: `Welcome Back! ${data.authDetail.username}`,
+      icon: 'success',
+      button: 'CONTINUE',
+    });
+  } catch (error) {
+    swal({
+      title: 'Ooops!!',
+      icon: 'error',
+      text: `${error.response.data.message}`,
+      button: 'RETRY',
+    });
+    dispatch(authenticationError(error.response.data));
   }
 };
 
@@ -50,16 +89,19 @@ export const DEFAULT_STATE = {
 export const authReducer = (state = DEFAULT_STATE, action) => {
   switch (action.type) {
     case REGISTER_REQUEST:
+    case AUTHENTICATION_REQUEST:
       return {
         ...state,
         isLoading: true,
       };
     case REGISTER_SUCCESS:
+    case AUTHENTICATION_SUCCESS:
       return {
         ...state,
         isLoading: false,
       };
     case REGISTER_ERROR:
+    case AUTHENTICATION_ERROR:
       return {
         ...state,
         error: action.error,

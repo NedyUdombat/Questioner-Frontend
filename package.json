@@ -25,6 +25,7 @@
   "scripts": {
     "test": "jest -u --coverage",
     "test:watch": "jest -u --watchAll --verbose",
+    "pretest": "npm run prettier",
     "watch": "webpack-dev-server --mode development --open --hot",
     "build": "webpack --mode production",
     "prettier": "prettier --write '**/*.{js,jsx}'",
