@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 // components
 import Navbar from '../../components/presentational/Navbar/Navbar';
@@ -17,14 +18,14 @@ const Index = () => {
           <div className="hero-text">
             <h1>Questioner</h1>
             <p>An application to crowd-source questions for a meetup.</p>
-            <a href="#">
+            <Link to="/register">
               <Button
                 type="button"
                 name="button"
                 className="btn btn-dark-alt"
                 value="REGISTER"
               />
-            </a>
+            </Link>
           </div>
         </div>
       </div>

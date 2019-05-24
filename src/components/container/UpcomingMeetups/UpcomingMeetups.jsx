@@ -77,6 +77,7 @@ UpcomingMeetups.propTypes = {
   getUpcomingMeetups: PropTypes.func,
   meetups: PropTypes.array,
 };
+
 export const mapStateToProps = state => ({
   meetups: state.meetups.meetups,
 });

@@ -1,17 +1,21 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Icon } from 'semantic-ui-react';
+import { Link } from 'react-router-dom';
 
 // styles
 import './Navbar.scss';
 import '../Button/Button.scss';
 
-const Navbar = () => {
+const Navbar = ({ className }) => {
   return (
     <div>
-      <div className="nav">
+      <div className={`nav ${className}`}>
         <input type="checkbox" id="nav-check" />
         <div className="nav-header">
-          <p className="nav-title">Questioner</p>
+          <Link to="/" className="nav-title">
+            Questioner
+          </Link>
         </div>
         <div className="nav-btn">
           <label htmlFor="nav-check">
@@ -20,19 +24,23 @@ const Navbar = () => {
         </div>
 
         <div className="nav-links">
-          <a href="#" className="btn btn-transparent">
+          <Link href="#" className="btn btn-transparent">
             MEETUPS
-          </a>
-          <a href="#" className="btn btn-dark-alt">
+          </Link>
+          <Link href="#" className="btn btn-dark-alt">
             LOGIN
-          </a>
-          <a href="#" className="btn btn-white-alt-hover">
+          </Link>
+          <Link to="/register" className="btn btn-white-alt-hover">
             REGISTER
-          </a>
+          </Link>
         </div>
       </div>
     </div>
   );
+};
+
+Navbar.propTypes = {
+  className: PropTypes.string,
 };
 
 export default Navbar;

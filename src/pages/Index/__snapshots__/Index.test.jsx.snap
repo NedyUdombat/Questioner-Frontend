@@ -18,8 +18,8 @@ exports[`Index should render correctly 1`] = `
         <p>
           An application to crowd-source questions for a meetup.
         </p>
-        <a
-          href="#"
+        <Link
+          to="/register"
         >
           <Button
             className="btn btn-dark-alt"
@@ -27,7 +27,7 @@ exports[`Index should render correctly 1`] = `
             type="button"
             value="REGISTER"
           />
-        </a>
+        </Link>
       </div>
     </div>
   </div>

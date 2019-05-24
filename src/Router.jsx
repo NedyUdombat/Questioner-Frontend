@@ -1,14 +1,14 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 
-import App from './pages/App';
-import Index from './pages/Index';
+import Index from './pages/Index/Index';
+import Authentication from './pages/Authentication/Authentication';
 
 const Router = () => {
   return (
     <Switch>
       <Route path="/" exact component={Index} />
-      <Route path="/app" exact component={App} />
+      <Route path="/register" exact component={Authentication} />
     </Switch>
   );
 };

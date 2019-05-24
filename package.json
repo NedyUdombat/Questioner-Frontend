@@ -24,6 +24,7 @@
   },
   "scripts": {
     "test": "jest -u --coverage",
+    "test:watch": "jest -u --watchAll --verbose",
     "watch": "webpack-dev-server --mode development --open --hot",
     "build": "webpack --mode production",
     "prettier": "prettier --write '**/*.{js,jsx}'",
@@ -69,6 +70,7 @@
   },
   "homepage": "https://github.com/NedyUdombat/Questioner-Frontend#readme",
   "dependencies": {
+    "@sweetalert/with-react": "^0.1.1",
     "axios": "^0.18.0",
     "jsonwebtoken": "^8.5.1",
     "moment": "^2.24.0",
@@ -80,7 +82,8 @@
     "redux": "^4.0.1",
     "redux-thunk": "^2.3.0",
     "semantic-ui-css": "^2.4.1",
-    "semantic-ui-react": "^0.86.0"
+    "semantic-ui-react": "^0.86.0",
+    "sweetalert": "^2.1.2"
   },
   "devDependencies": {
     "@babel/core": "^7.4.4",

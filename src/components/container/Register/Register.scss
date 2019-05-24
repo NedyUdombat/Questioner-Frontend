@@ -1,0 +1,21 @@
+@import '../../../assets/sass/index';
+
+.form-group {
+  display: grid;
+  grid-gap: .9375rem;
+  grid-template-columns: auto auto;
+  padding: 0;
+
+  .input-div {
+    font-size: 1.825rem;
+    height: 3.75rem;
+    padding: 0;
+    text-align: center;
+  }
+}
+
+@media only screen and (max-width: 47.5rem) {
+  .form-group {
+    grid-template-columns: auto;
+  }
+}

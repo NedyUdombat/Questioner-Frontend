@@ -1,0 +1,29 @@
+@import '../../assets/sass/index';
+
+.auth {
+  display: flex;
+  padding: 3% 6%;
+
+  .left {
+    width: 60%;
+  }
+
+  .right {
+    width: 40%;
+  }
+}
+
+@media only screen and (max-width: 47.5rem) {
+  .auth {
+    display: block;
+
+    .left {
+      display: none;
+      width: 100%;
+    }
+
+    .right {
+      width: 100%;
+    }
+  }
+}
