@@ -79,5 +79,5 @@ Navbar.propTypes = {
 
 export default connect(
   null,
-  { logout },
+  {},
 )(Navbar);

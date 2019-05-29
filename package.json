@@ -23,11 +23,12 @@
     ]
   },
   "scripts": {
+    "start": "node server.js",
+    "build": "NODE_ENV=production webpack --mode production",
     "test": "jest -u --coverage",
     "test:watch": "jest -u --watchAll --verbose",
     "pretest": "npm run prettier",
     "watch": "webpack-dev-server --mode development --open --hot",
-    "build": "webpack --mode production",
     "prettier": "prettier --write '**/*.{js,jsx}'",
     "lint": "node_modules/eslint/bin/eslint.js --fix",
     "sass-lint": "sass-lint 'src/**/*.scss' -q -v",
