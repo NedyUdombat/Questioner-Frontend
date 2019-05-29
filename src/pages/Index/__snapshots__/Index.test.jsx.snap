@@ -5,7 +5,7 @@ exports[`Index should render correctly 1`] = `
   <div
     className="jumbotron"
   >
-    <Navbar />
+    <ConnectFunction />
     <div
       className="hero-image"
     >
