@@ -1,0 +1,40 @@
+
+.admin .product-card {
+  height: 350px;
+  position: relative;
+}
+
+.admin .product-card .card-image-top {
+  background: #f00;
+  height: 60%;
+}
+
+.admin .product-card .product-card-footer {
+  background: #f00;
+  bottom: 0;
+  height: 50px;
+  position: absolute;
+}
+
+.choose-image-label {
+  margin-left: 10px;
+  margin-right: 10px !important;
+  margin-top: 0 !important;
+  width: 100%;
+}
+
+.justify-content-around {
+  justify-content: space-around;
+}
+
+.justify-content-end {
+  justify-content: flex-end;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.align-items-center {
+  align-items: center;
+}

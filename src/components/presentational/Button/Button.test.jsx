@@ -8,12 +8,9 @@ const clickTest = jest.fn();
 describe('Button', () => {
   it('should render correctly', () => {
     const component = mount(
-      <Button
-        className="btn"
-        type="button"
-        value="login"
-        onClick={clickTest()}
-      />,
+      <Button className="btn" type="button" value="login" onClick={clickTest()}>
+        hey
+      </Button>,
     );
     expect(component).toMatchSnapshot();
   });

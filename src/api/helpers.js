@@ -34,3 +34,8 @@ export const destroyEncodedUser = () => {
   localStorage.removeItem('encodedUser');
   return null;
 };
+
+export const isAdmin = () => {
+  if (getEncodedUser().role === 'admin') return true;
+  return false;
+};

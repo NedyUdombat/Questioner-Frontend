@@ -7,6 +7,9 @@ import {
   GET_UPCOMING_MEETUPS_SUCCESS,
   GET_ALL_MEETUPS_ERROR,
   GET_ALL_MEETUPS_SUCCESS,
+  CREATE_MEETUP_PROCESS,
+  CREATE_MEETUP_SUCCESS,
+  CREATE_MEETUP_ERROR,
   DEFAULT_STATE,
   getUpcomingMeetupsError,
   getUpcomingMeetupsSuccess,
@@ -14,6 +17,10 @@ import {
   getAllMeetupsError,
   getAllMeetupsSuccess,
   getAllMeetups,
+  createMeetupProcess,
+  createMeetupSuccess,
+  createMeetupError,
+  createMeetup,
   meetupReducer,
 } from './meetup';
 
@@ -55,6 +62,30 @@ describe('actions', () => {
     };
     expect(getAllMeetupsError(error)).toEqual(expectedAction);
   });
+
+  it('should create an action for create meetup process', () => {
+    const expectedAction = {
+      type: CREATE_MEETUP_PROCESS,
+    };
+    expect(createMeetupProcess()).toEqual(expectedAction);
+  });
+
+  it('should create an action to create meetup', () => {
+    const expectedAction = {
+      type: CREATE_MEETUP_SUCCESS,
+      meetups: [],
+    };
+    expect(createMeetupSuccess(meetups)).toEqual(expectedAction);
+  });
+
+  it('should create an error action if it fails to create meetup', () => {
+    const error = '';
+    const expectedAction = {
+      type: CREATE_MEETUP_ERROR,
+      error,
+    };
+    expect(createMeetupError(error)).toEqual(expectedAction);
+  });
 });
 
 describe('reducers', () => {
@@ -87,6 +118,25 @@ describe('reducers', () => {
     const action = getAllMeetupsError('');
     const state = meetupReducer(DEFAULT_STATE, action);
     expect(state.error).toEqual(action.error);
+  });
+  it('should return the meetups process', () => {
+    const action = createMeetupProcess();
+    const state = meetupReducer(DEFAULT_STATE, action);
+    expect(state.isLoading).toEqual(true);
+  });
+
+  it('should return the meetup', () => {
+    const action = createMeetupSuccess(meetups);
+    const state = meetupReducer(DEFAULT_STATE, action);
+    expect(state.isLoading).toEqual(false);
+    expect(state.meetups).toEqual(action.meetups);
+  });
+
+  it('should return an error if any on creating meetup', () => {
+    const action = createMeetupError('');
+    const state = meetupReducer(DEFAULT_STATE, action);
+    expect(state.error).toEqual(action.error);
+    expect(state.isLoading).toEqual(false);
   });
 });
 
@@ -171,6 +221,54 @@ describe('dispatch requests', () => {
     ];
     const store = mockStore(DEFAULT_STATE);
     return store.dispatch(getAllMeetups()).then(() => {
+      expect(store.getActions()).toEqual(expectedActions);
+    });
+  });
+
+  it('should dispatch a successful get create meetup action', () => {
+    const data = {
+      status: '',
+      message: '',
+      data: {},
+    };
+
+    const meetup = {};
+    const allMeetups = [{}, {}];
+    http.post = jest.fn().mockReturnValue(Promise.resolve({ data: data }));
+    const expectedActions = [
+      {
+        type: 'CREATE_MEETUP_PROCESS',
+      },
+      {
+        type: 'CREATE_MEETUP_SUCCESS',
+        meetups: [{}, {}, data.data],
+      },
+    ];
+    const store = mockStore(DEFAULT_STATE);
+    return store.dispatch(createMeetup(meetup, allMeetups)).then(() => {
+      expect(store.getActions()).toEqual(expectedActions);
+    });
+  });
+
+  it('should dispatch an error create meetup action ', () => {
+    const response = {
+      data: {
+        status: '',
+        message: 'An error occurred',
+      },
+    };
+    http.post = jest.fn().mockReturnValue(Promise.reject({ response }));
+    const expectedActions = [
+      {
+        type: 'CREATE_MEETUP_PROCESS',
+      },
+      {
+        type: 'CREATE_MEETUP_ERROR',
+        error: response.data,
+      },
+    ];
+    const store = mockStore(DEFAULT_STATE);
+    return store.dispatch(createMeetup()).then(() => {
       expect(store.getActions()).toEqual(expectedActions);
     });
   });
