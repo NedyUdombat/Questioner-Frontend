@@ -4,6 +4,8 @@ import {
   geUpcomingMeetupsRequest,
   getAllMeetupsRequest,
   createMeetupRequest,
+  editMeetupRequest,
+  deleteMeetupRequest,
 } from '../../api/meetup';
 
 // actions
@@ -59,13 +61,14 @@ export const editMeetupProcess = () => ({
   type: EDIT_MEETUP_PROCESS,
 });
 
-export const editMeetupSuccess = meetup => ({
+export const editMeetupSuccess = meetups => ({
   type: EDIT_MEETUP_SUCCESS,
-  meetup,
+  meetups,
 });
 
-export const editMeetupError = () => ({
+export const editMeetupError = error => ({
   type: EDIT_MEETUP_ERROR,
+  error,
 });
 
 export const deleteMeetupProcess = () => ({
@@ -77,8 +80,9 @@ export const deleteMeetupSuccess = meetups => ({
   meetups,
 });
 
-export const deleteMeetupError = () => ({
+export const deleteMeetupError = error => ({
   type: DELETE_MEETUP_ERROR,
+  error,
 });
 
 export const getUpcomingMeetups = () => async dispatch => {
@@ -122,6 +126,56 @@ export const createMeetup = (meetup, meetups) => async dispatch => {
   }
 };
 
+export const editMeetup = (meetup, meetups, meetupId) => async dispatch => {
+  try {
+    dispatch(editMeetupProcess());
+    const { data } = await editMeetupRequest(meetup, meetupId);
+    let meetupIndex;
+    meetups.find((element, index) => {
+      if (element.id === meetupId) return (meetupIndex = index);
+    });
+    meetups.splice(meetupIndex, 1, data.data);
+    dispatch(editMeetupSuccess(meetups));
+    swal({
+      title: 'Success!',
+      text: `Meetup successfully edited`,
+      icon: 'success',
+      button: 'CONTINUE',
+    });
+  } catch (error) {
+    swal({
+      title: 'Error!',
+      icon: 'error',
+      text: `${error.response.data.message}`,
+      button: 'RETRY',
+    });
+    dispatch(editMeetupError(error.response.data));
+  }
+};
+
+export const deleteMeetup = (meetupId, meetups) => async dispatch => {
+  try {
+    dispatch(deleteMeetupProcess());
+    const newMeetups = meetups.filter(meetup => meetup.id !== meetupId);
+    await deleteMeetupRequest(meetupId);
+    dispatch(deleteMeetupSuccess(newMeetups));
+    swal({
+      title: 'Success!',
+      icon: 'success',
+      text: `Meetup successfully deleted`,
+      button: 'CONTINUE',
+    });
+  } catch (error) {
+    swal({
+      title: 'Error!',
+      icon: 'error',
+      text: `${error.response.data.message}`,
+      button: 'RETRY',
+    });
+    dispatch(deleteMeetupError(error.response.data));
+  }
+};
+
 export const DEFAULT_STATE = {
   meetups: [],
   error: {},
@@ -154,6 +208,41 @@ export const meetupReducer = (state = DEFAULT_STATE, action) => {
         isLoading: false,
       };
     case CREATE_MEETUP_ERROR:
+      return {
+        ...state,
+        error: action.error,
+        isLoading: false,
+      };
+    case EDIT_MEETUP_PROCESS:
+      return {
+        ...state,
+        isLoading: true,
+      };
+    case EDIT_MEETUP_SUCCESS:
+      return {
+        ...state,
+        meetups: action.meetups,
+        isLoading: false,
+      };
+    case EDIT_MEETUP_ERROR:
+      return {
+        ...state,
+        error: action.error,
+        isLoading: false,
+      };
+
+    case DELETE_MEETUP_PROCESS:
+      return {
+        ...state,
+        isLoading: true,
+      };
+    case DELETE_MEETUP_SUCCESS:
+      return {
+        ...state,
+        isLoading: false,
+        meetups: action.meetups,
+      };
+    case DELETE_MEETUP_ERROR:
       return {
         ...state,
         error: action.error,

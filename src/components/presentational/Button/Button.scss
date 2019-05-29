@@ -75,3 +75,14 @@
   transition: .1s ease-in;
 }
 
+.btn-danger {
+  background-color: $primary-red;
+  border: .0625rem solid $primary-red;
+  color: $primary-white;
+}
+
+.btn-danger:hover {
+  background-color: $primary-white;
+  border: .0625rem solid $primary-red;
+  color: $primary-red;
+}
