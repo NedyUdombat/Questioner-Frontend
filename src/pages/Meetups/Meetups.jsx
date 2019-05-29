@@ -1,41 +1,26 @@
-import React from 'react';
-import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import moment from 'moment';
+import React, { Fragment } from 'react';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import Navbar from '../../components/presentational/Navbar/Navbar';
+import Image from '../../components/presentational/Image/Image';
+import { DEFAULT_IMAGE_URL } from '../../utils/config';
+import moment from 'moment';
+import { getAllMeetups } from '../../store/modules/meetup';
 
-// actions
-import { getUpcomingMeetups } from '../../../store/modules/meetup';
-
-// config
-import { DEFAULT_IMAGE_URL } from '../../../utils/config';
-
-// components
-import Image from '../../presentational/Image/Image';
-
-// styles
-import './UpcomingMeetups.scss';
-
-export class UpcomingMeetups extends React.Component {
+export class Meetups extends React.Component {
   componentDidMount() {
-    this.props.getUpcomingMeetups();
+    this.props.getAllMeetups();
   }
 
   render() {
     const { meetups } = this.props;
     return (
-      <div>
-        <div className="d-flex justify-content-center">
-          <div className="title-tag">
-            <p>Upcoming Meetups</p>
-            <div className="d-flex justify-content-center">
-              <div className="dash" />
-            </div>
-          </div>
-        </div>
+      <Fragment>
+        <Navbar className="nav-dark" />
         <div className="section group">
           {meetups.length === 0 ? (
-            <p>No Upcoming meetups</p>
+            <p>No meetups</p>
           ) : (
             meetups.map(meetup => (
               <div className="col span_1_of_4" key={meetup.id}>
@@ -69,13 +54,13 @@ export class UpcomingMeetups extends React.Component {
             ))
           )}
         </div>
-      </div>
+      </Fragment>
     );
   }
 }
 
-UpcomingMeetups.propTypes = {
-  getUpcomingMeetups: PropTypes.func.isRequired,
+Meetups.propTypes = {
+  getAllMeetups: PropTypes.func.isRequired,
   meetups: PropTypes.array.isRequired,
 };
 
@@ -85,5 +70,5 @@ export const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { getUpcomingMeetups },
-)(UpcomingMeetups);
+  { getAllMeetups },
+)(Meetups);

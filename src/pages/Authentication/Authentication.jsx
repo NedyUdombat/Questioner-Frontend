@@ -23,7 +23,11 @@ const Authentication = ({ match }) => {
           />
         </div>
         <div className="right">
-          {match.path === '/register' ? <Register /> : <Login />}
+          {match.path === '/register' ? (
+            <Register {...location} />
+          ) : (
+            <Login {...location} />
+          )}
         </div>
       </div>
     </div>
@@ -31,9 +35,14 @@ const Authentication = ({ match }) => {
 };
 
 Authentication.propTypes = {
-  match: PropTypes.shape({
-    path: PropTypes.string,
+  props: PropTypes.shape({
+    match: PropTypes.shape({
+      path: PropTypes.string,
+    }),
+    location: PropTypes.object,
   }),
+  match: PropTypes.object,
+  location: PropTypes.object,
 };
 
 export default Authentication;

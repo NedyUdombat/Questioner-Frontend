@@ -1,18 +1,29 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import { BrowserRouter } from 'react-router-dom';
+import configureMockStore from 'redux-mock-store';
+import { Provider } from 'react-redux';
 
-import { UpcomingMeetups, mapStateToProps } from './UpcomingMeetups';
+import { Meetups, mapStateToProps } from './Meetups';
 
-describe('UpcomingMeetups', () => {
+let store;
+
+describe('Meetups', () => {
+  beforeEach(() => {
+    const mockStore = configureMockStore();
+    store = mockStore({ meetups: { meetups: [] } });
+  });
+
   it('should render correctly', () => {
     const props = {
-      getUpcomingMeetups: jest.fn(),
+      getAllMeetups: jest.fn(),
       meetups: [],
     };
     const component = mount(
       <BrowserRouter>
-        <UpcomingMeetups {...props} />
+        <Provider store={store}>
+          <Meetups {...props} />
+        </Provider>
       </BrowserRouter>,
     );
     expect(component).toMatchSnapshot();
@@ -20,7 +31,7 @@ describe('UpcomingMeetups', () => {
 
   it('should render correctly with all props', () => {
     const props = {
-      getUpcomingMeetups: jest.fn(),
+      getAllMeetups: jest.fn(),
       meetups: [
         {
           id: 'fhwjicgyvufbewf',
@@ -33,7 +44,9 @@ describe('UpcomingMeetups', () => {
     };
     const component = mount(
       <BrowserRouter>
-        <UpcomingMeetups {...props} />
+        <Provider store={store}>
+          <Meetups {...props} />
+        </Provider>
       </BrowserRouter>,
     );
     expect(component).toMatchSnapshot();
@@ -41,7 +54,7 @@ describe('UpcomingMeetups', () => {
 
   it('should render correctly with all props and without image', () => {
     const props = {
-      getUpcomingMeetups: jest.fn(),
+      getAllMeetups: jest.fn(),
       meetups: [
         {
           id: 'fhwjicgyvufbewf',
@@ -53,7 +66,9 @@ describe('UpcomingMeetups', () => {
     };
     const component = mount(
       <BrowserRouter>
-        <UpcomingMeetups {...props} />
+        <Provider store={store}>
+          <Meetups {...props} />
+        </Provider>
       </BrowserRouter>,
     );
     expect(component).toMatchSnapshot();

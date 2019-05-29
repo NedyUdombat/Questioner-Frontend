@@ -5,10 +5,15 @@ import { http } from '../../api/client';
 import {
   GET_UPCOMING_MEETUPS_ERROR,
   GET_UPCOMING_MEETUPS_SUCCESS,
+  GET_ALL_MEETUPS_ERROR,
+  GET_ALL_MEETUPS_SUCCESS,
   DEFAULT_STATE,
   getUpcomingMeetupsError,
   getUpcomingMeetupsSuccess,
   getUpcomingMeetups,
+  getAllMeetupsError,
+  getAllMeetupsSuccess,
+  getAllMeetups,
   meetupReducer,
 } from './meetup';
 
@@ -33,6 +38,23 @@ describe('actions', () => {
     };
     expect(getUpcomingMeetupsError(error)).toEqual(expectedAction);
   });
+
+  it('should create an action to get all meetups', () => {
+    const expectedAction = {
+      type: GET_ALL_MEETUPS_SUCCESS,
+      meetups: [],
+    };
+    expect(getAllMeetupsSuccess(meetups)).toEqual(expectedAction);
+  });
+
+  it('should create an error action if it fails to get all meetups', () => {
+    const error = '';
+    const expectedAction = {
+      type: GET_ALL_MEETUPS_ERROR,
+      error,
+    };
+    expect(getAllMeetupsError(error)).toEqual(expectedAction);
+  });
 });
 
 describe('reducers', () => {
@@ -51,6 +73,18 @@ describe('reducers', () => {
 
   it('should return an error if any on getting a upcoming meetups', () => {
     const action = getUpcomingMeetupsError('');
+    const state = meetupReducer(DEFAULT_STATE, action);
+    expect(state.error).toEqual(action.error);
+  });
+
+  it('should return the meetups', () => {
+    const action = getAllMeetupsSuccess(meetups);
+    const state = meetupReducer(DEFAULT_STATE, action);
+    expect(state.meetup).toEqual(action.meetup);
+  });
+
+  it('should return an error if any on getting a upcoming meetups', () => {
+    const action = getAllMeetupsError('');
     const state = meetupReducer(DEFAULT_STATE, action);
     expect(state.error).toEqual(action.error);
   });
@@ -95,6 +129,48 @@ describe('dispatch requests', () => {
     ];
     const store = mockStore(DEFAULT_STATE);
     return store.dispatch(getUpcomingMeetups()).then(() => {
+      expect(store.getActions()).toEqual(expectedActions);
+    });
+  });
+
+  it('should dispatch a successful get all action', () => {
+    const data = {
+      status: '',
+      message: '',
+      data: [],
+    };
+    http.get = jest.fn().mockReturnValue(Promise.resolve({ data: data }));
+    const expectedActions = [
+      {
+        type: 'GET_ALL_MEETUPS_SUCCESS',
+        meetups: [],
+      },
+    ];
+    const store = mockStore(DEFAULT_STATE);
+    return store.dispatch(getAllMeetups()).then(() => {
+      expect(store.getActions()).toEqual(expectedActions);
+    });
+  });
+
+  it('should dispatch an error get all action ', () => {
+    const data = {
+      status: '',
+      message: '',
+    };
+    http.get = jest.fn().mockReturnValue(Promise.reject({ data: data }));
+    const expectedActions = [
+      {
+        type: 'GET_ALL_MEETUPS_ERROR',
+        error: {
+          data: {
+            status: '',
+            message: '',
+          },
+        },
+      },
+    ];
+    const store = mockStore(DEFAULT_STATE);
+    return store.dispatch(getAllMeetups()).then(() => {
       expect(store.getActions()).toEqual(expectedActions);
     });
   });

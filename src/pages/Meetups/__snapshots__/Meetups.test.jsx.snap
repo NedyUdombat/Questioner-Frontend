@@ -1,0 +1,619 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Meetups should render correctly 1`] = `
+<BrowserRouter>
+  <Router
+    history={
+      Object {
+        "action": "POP",
+        "block": [Function],
+        "createHref": [Function],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "length": 1,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "pathname": "/",
+          "search": "",
+          "state": undefined,
+        },
+        "push": [Function],
+        "replace": [Function],
+      }
+    }
+  >
+    <Provider
+      store={
+        Object {
+          "clearActions": [Function],
+          "dispatch": [Function],
+          "getActions": [Function],
+          "getState": [Function],
+          "replaceReducer": [Function],
+          "subscribe": [Function],
+        }
+      }
+    >
+      <Meetups
+        getAllMeetups={
+          [MockFunction] {
+            "calls": Array [
+              Array [],
+            ],
+            "results": Array [
+              Object {
+                "type": "return",
+                "value": undefined,
+              },
+            ],
+          }
+        }
+        meetups={Array []}
+      >
+        <ConnectFunction
+          className="nav-dark"
+        >
+          <Navbar
+            className="nav-dark"
+          >
+            <div>
+              <div
+                className="nav nav-dark"
+              >
+                <input
+                  id="nav-check"
+                  type="checkbox"
+                />
+                <div
+                  className="nav-header"
+                >
+                  <Link
+                    className="nav-title"
+                    to="/"
+                  >
+                    <a
+                      className="nav-title"
+                      href="/"
+                      onClick={[Function]}
+                    >
+                      Questioner
+                    </a>
+                  </Link>
+                </div>
+                <div
+                  className="nav-btn"
+                >
+                  <label
+                    htmlFor="nav-check"
+                  >
+                    <Icon
+                      as="i"
+                      color="grey"
+                      name="bars"
+                      size="big"
+                    >
+                      <i
+                        aria-hidden="true"
+                        className="grey bars big icon"
+                        onClick={[Function]}
+                      />
+                    </Icon>
+                  </label>
+                </div>
+                <div
+                  className="nav-links"
+                >
+                  <Link
+                    className="btn btn-transparent"
+                    to="/meetups"
+                  >
+                    <a
+                      className="btn btn-transparent"
+                      href="/meetups"
+                      onClick={[Function]}
+                    >
+                      MEETUPS
+                    </a>
+                  </Link>
+                  <Link
+                    className="btn btn-dark-alt"
+                    to="/login"
+                  >
+                    <a
+                      className="btn btn-dark-alt"
+                      href="/login"
+                      onClick={[Function]}
+                    >
+                      LOGIN
+                    </a>
+                  </Link>
+                  <Link
+                    className="btn btn-white-alt-hover"
+                    to="/register"
+                  >
+                    <a
+                      className="btn btn-white-alt-hover"
+                      href="/register"
+                      onClick={[Function]}
+                    >
+                      REGISTER
+                    </a>
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </Navbar>
+        </ConnectFunction>
+        <div
+          className="section group"
+        >
+          <p>
+            No meetups
+          </p>
+        </div>
+      </Meetups>
+    </Provider>
+  </Router>
+</BrowserRouter>
+`;
+
+exports[`Meetups should render correctly with all props 1`] = `
+<BrowserRouter>
+  <Router
+    history={
+      Object {
+        "action": "POP",
+        "block": [Function],
+        "createHref": [Function],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "length": 1,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "pathname": "/",
+          "search": "",
+          "state": undefined,
+        },
+        "push": [Function],
+        "replace": [Function],
+      }
+    }
+  >
+    <Provider
+      store={
+        Object {
+          "clearActions": [Function],
+          "dispatch": [Function],
+          "getActions": [Function],
+          "getState": [Function],
+          "replaceReducer": [Function],
+          "subscribe": [Function],
+        }
+      }
+    >
+      <Meetups
+        getAllMeetups={
+          [MockFunction] {
+            "calls": Array [
+              Array [],
+            ],
+            "results": Array [
+              Object {
+                "type": "return",
+                "value": undefined,
+              },
+            ],
+          }
+        }
+        meetups={
+          Array [
+            Object {
+              "happening_on": "2020-05-18T21:28:41+0000",
+              "id": "fhwjicgyvufbewf",
+              "image": "http://dummyinge.jpg",
+              "organizer_name": "organizer_name",
+              "topic": "topic",
+            },
+          ]
+        }
+      >
+        <ConnectFunction
+          className="nav-dark"
+        >
+          <Navbar
+            className="nav-dark"
+          >
+            <div>
+              <div
+                className="nav nav-dark"
+              >
+                <input
+                  id="nav-check"
+                  type="checkbox"
+                />
+                <div
+                  className="nav-header"
+                >
+                  <Link
+                    className="nav-title"
+                    to="/"
+                  >
+                    <a
+                      className="nav-title"
+                      href="/"
+                      onClick={[Function]}
+                    >
+                      Questioner
+                    </a>
+                  </Link>
+                </div>
+                <div
+                  className="nav-btn"
+                >
+                  <label
+                    htmlFor="nav-check"
+                  >
+                    <Icon
+                      as="i"
+                      color="grey"
+                      name="bars"
+                      size="big"
+                    >
+                      <i
+                        aria-hidden="true"
+                        className="grey bars big icon"
+                        onClick={[Function]}
+                      />
+                    </Icon>
+                  </label>
+                </div>
+                <div
+                  className="nav-links"
+                >
+                  <Link
+                    className="btn btn-transparent"
+                    to="/meetups"
+                  >
+                    <a
+                      className="btn btn-transparent"
+                      href="/meetups"
+                      onClick={[Function]}
+                    >
+                      MEETUPS
+                    </a>
+                  </Link>
+                  <Link
+                    className="btn btn-dark-alt"
+                    to="/login"
+                  >
+                    <a
+                      className="btn btn-dark-alt"
+                      href="/login"
+                      onClick={[Function]}
+                    >
+                      LOGIN
+                    </a>
+                  </Link>
+                  <Link
+                    className="btn btn-white-alt-hover"
+                    to="/register"
+                  >
+                    <a
+                      className="btn btn-white-alt-hover"
+                      href="/register"
+                      onClick={[Function]}
+                    >
+                      REGISTER
+                    </a>
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </Navbar>
+        </ConnectFunction>
+        <div
+          className="section group"
+        >
+          <div
+            className="col span_1_of_4"
+            key="fhwjicgyvufbewf"
+          >
+            <div
+              className="d-flex justify-content-center"
+            >
+              <div
+                className="product-card"
+              >
+                <Link
+                  to="#"
+                >
+                  <a
+                    href="/"
+                    onClick={[Function]}
+                  >
+                    <div
+                      className="card-image-top"
+                    >
+                      <Image
+                        alt="fr"
+                        className="product-image"
+                        src="http://dummyinge.jpg"
+                      >
+                        <img
+                          alt="fr"
+                          className="product-image"
+                          src="http://dummyinge.jpg"
+                        />
+                      </Image>
+                    </div>
+                    <div
+                      className="product-card-details"
+                    >
+                      <p
+                        className="f-20 "
+                      >
+                        <b>
+                          topic
+                        </b>
+                      </p>
+                      <div
+                        className="d-flex justify-content-between mt-1"
+                      >
+                        <small
+                          className="f-12"
+                        >
+                          <i>
+                            organizer_name
+                          </i>
+                        </small>
+                        <p
+                          className="text-blue"
+                        >
+                          18 May 2020
+                        </p>
+                      </div>
+                    </div>
+                  </a>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </Meetups>
+    </Provider>
+  </Router>
+</BrowserRouter>
+`;
+
+exports[`Meetups should render correctly with all props and without image 1`] = `
+<BrowserRouter>
+  <Router
+    history={
+      Object {
+        "action": "POP",
+        "block": [Function],
+        "createHref": [Function],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "length": 1,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "pathname": "/",
+          "search": "",
+          "state": undefined,
+        },
+        "push": [Function],
+        "replace": [Function],
+      }
+    }
+  >
+    <Provider
+      store={
+        Object {
+          "clearActions": [Function],
+          "dispatch": [Function],
+          "getActions": [Function],
+          "getState": [Function],
+          "replaceReducer": [Function],
+          "subscribe": [Function],
+        }
+      }
+    >
+      <Meetups
+        getAllMeetups={
+          [MockFunction] {
+            "calls": Array [
+              Array [],
+            ],
+            "results": Array [
+              Object {
+                "type": "return",
+                "value": undefined,
+              },
+            ],
+          }
+        }
+        meetups={
+          Array [
+            Object {
+              "happening_on": "2020-05-18T21:28:41+0000",
+              "id": "fhwjicgyvufbewf",
+              "organizer_name": "organizer_name",
+              "topic": "topic",
+            },
+          ]
+        }
+      >
+        <ConnectFunction
+          className="nav-dark"
+        >
+          <Navbar
+            className="nav-dark"
+          >
+            <div>
+              <div
+                className="nav nav-dark"
+              >
+                <input
+                  id="nav-check"
+                  type="checkbox"
+                />
+                <div
+                  className="nav-header"
+                >
+                  <Link
+                    className="nav-title"
+                    to="/"
+                  >
+                    <a
+                      className="nav-title"
+                      href="/"
+                      onClick={[Function]}
+                    >
+                      Questioner
+                    </a>
+                  </Link>
+                </div>
+                <div
+                  className="nav-btn"
+                >
+                  <label
+                    htmlFor="nav-check"
+                  >
+                    <Icon
+                      as="i"
+                      color="grey"
+                      name="bars"
+                      size="big"
+                    >
+                      <i
+                        aria-hidden="true"
+                        className="grey bars big icon"
+                        onClick={[Function]}
+                      />
+                    </Icon>
+                  </label>
+                </div>
+                <div
+                  className="nav-links"
+                >
+                  <Link
+                    className="btn btn-transparent"
+                    to="/meetups"
+                  >
+                    <a
+                      className="btn btn-transparent"
+                      href="/meetups"
+                      onClick={[Function]}
+                    >
+                      MEETUPS
+                    </a>
+                  </Link>
+                  <Link
+                    className="btn btn-dark-alt"
+                    to="/login"
+                  >
+                    <a
+                      className="btn btn-dark-alt"
+                      href="/login"
+                      onClick={[Function]}
+                    >
+                      LOGIN
+                    </a>
+                  </Link>
+                  <Link
+                    className="btn btn-white-alt-hover"
+                    to="/register"
+                  >
+                    <a
+                      className="btn btn-white-alt-hover"
+                      href="/register"
+                      onClick={[Function]}
+                    >
+                      REGISTER
+                    </a>
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </Navbar>
+        </ConnectFunction>
+        <div
+          className="section group"
+        >
+          <div
+            className="col span_1_of_4"
+            key="fhwjicgyvufbewf"
+          >
+            <div
+              className="d-flex justify-content-center"
+            >
+              <div
+                className="product-card"
+              >
+                <Link
+                  to="#"
+                >
+                  <a
+                    href="/"
+                    onClick={[Function]}
+                  >
+                    <div
+                      className="card-image-top"
+                    >
+                      <Image
+                        alt="fr"
+                        className="product-image"
+                        src="https://res.cloudinary.com/nedy123/image/upload/v1558200381/demo/image_2.4.png"
+                      >
+                        <img
+                          alt="fr"
+                          className="product-image"
+                          src="https://res.cloudinary.com/nedy123/image/upload/v1558200381/demo/image_2.4.png"
+                        />
+                      </Image>
+                    </div>
+                    <div
+                      className="product-card-details"
+                    >
+                      <p
+                        className="f-20 "
+                      >
+                        <b>
+                          topic
+                        </b>
+                      </p>
+                      <div
+                        className="d-flex justify-content-between mt-1"
+                      >
+                        <small
+                          className="f-12"
+                        >
+                          <i>
+                            organizer_name
+                          </i>
+                        </small>
+                        <p
+                          className="text-blue"
+                        >
+                          18 May 2020
+                        </p>
+                      </div>
+                    </div>
+                  </a>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </Meetups>
+    </Provider>
+  </Router>
+</BrowserRouter>
+`;

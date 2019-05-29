@@ -24,10 +24,14 @@ exports[`Navbar should render correctly 1`] = `
       }
     }
   >
-    <Navbar>
+    <Navbar
+      className="navbar"
+      logOut={[MockFunction]}
+      username={[MockFunction]}
+    >
       <div>
         <div
-          className="nav undefined"
+          className="nav navbar"
         >
           <input
             id="nav-check"
@@ -74,11 +78,11 @@ exports[`Navbar should render correctly 1`] = `
           >
             <Link
               className="btn btn-transparent"
-              to="/login"
+              to="/meetups"
             >
               <a
                 className="btn btn-transparent"
-                href="/login"
+                href="/meetups"
                 onClick={[Function]}
               >
                 MEETUPS

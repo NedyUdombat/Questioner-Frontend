@@ -9,6 +9,8 @@ import {
   AUTHENTICATION_REQUEST,
   AUTHENTICATION_SUCCESS,
   AUTHENTICATION_ERROR,
+  LOGOUT_INITIALIZED,
+  LOGOUT_SUCCESS,
   DEFAULT_STATE,
   registrationInitialized,
   registrationSuccess,
@@ -16,8 +18,11 @@ import {
   authenticationInitialized,
   authenticationSuccess,
   authenticationError,
+  logoutInitialize,
+  logoutSuccess,
   register,
   authenticate,
+  // logout,
   authReducer,
 } from './auth';
 
@@ -69,6 +74,20 @@ describe('actions', () => {
     };
     expect(authenticationError(error)).toEqual(expectedAction);
   });
+
+  it('should create an action to for logout request', () => {
+    const expectedAction = {
+      type: LOGOUT_INITIALIZED,
+    };
+    expect(logoutInitialize()).toEqual(expectedAction);
+  });
+
+  it('should create an action to upon successful logout', () => {
+    const expectedAction = {
+      type: LOGOUT_SUCCESS,
+    };
+    expect(logoutSuccess()).toEqual(expectedAction);
+  });
 });
 
 describe('reducers', () => {
@@ -116,6 +135,18 @@ describe('reducers', () => {
     expect(state.error).toEqual(action.error);
     expect(state.isLoading).toEqual(false);
   });
+
+  it('should return the logout process', () => {
+    const action = logoutInitialize();
+    const state = authReducer(DEFAULT_STATE, action);
+    expect(state.isLoading).toEqual(true);
+  });
+
+  it('should return logout success', () => {
+    const action = logoutSuccess();
+    const state = authReducer(DEFAULT_STATE, action);
+    expect(state.isLoading).toEqual(false);
+  });
 });
 
 describe('dispatch requests', () => {
@@ -126,6 +157,11 @@ describe('dispatch requests', () => {
       data: {
         username: 'username',
         token: 'q2345tgbnfjcv8ujed9cquwefnacbuiweodcjiwneif9cjinuwe',
+        authDetail: {
+          username: 'username',
+          email: 'username@quest.com',
+          role: 'user',
+        },
       },
     };
     http.post = jest.fn().mockReturnValue(Promise.resolve({ data: data }));
@@ -135,6 +171,7 @@ describe('dispatch requests', () => {
       },
       {
         type: 'REGISTER_SUCCESS',
+        user: data.data.authDetail,
       },
     ];
     const store = mockStore(DEFAULT_STATE);
@@ -184,6 +221,7 @@ describe('dispatch requests', () => {
       },
       {
         type: 'AUTHENTICATION_SUCCESS',
+        user: data.authDetail,
       },
     ];
     const store = mockStore(DEFAULT_STATE);
@@ -214,4 +252,20 @@ describe('dispatch requests', () => {
       expect(store.getActions()).toEqual(expectedActions);
     });
   });
+
+  // it('should dispatch a successful logout action', () => {
+  //   // history.push = jest.fn();
+  //   const expectedActions = [
+  //     {
+  //       type: 'LOGOUT_INITIALIZED',
+  //     },
+  //     {
+  //       type: 'LOGOUT_SUCCESS',
+  //     },
+  //   ];
+  //   const store = mockStore(DEFAULT_STATE);
+  //   return store.dispatch(logout({ history: jest.push })).then(() => {
+  //     expect(store.getActions()).toEqual(expectedActions);
+  //   });
+  // });
 });

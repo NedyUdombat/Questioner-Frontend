@@ -26,7 +26,7 @@
     "no-param-reassign": 0,
     "comma-dangle": 0,
     "curly": ["error", "multi-line"],
-    "no-console": "error",
+    "no-console": "warn",
     "no-shadow": [
       "error",
       {

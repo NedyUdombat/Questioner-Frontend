@@ -68,7 +68,7 @@ exports[`Authentication should render correctly with Login 1`] = `
 
 exports[`Authentication should render correctly with Login 2`] = `
 <div>
-  <Navbar
+  <ConnectFunction
     className="nav-dark"
   />
   <div
@@ -86,7 +86,21 @@ exports[`Authentication should render correctly with Login 2`] = `
     <div
       className="right"
     >
-      <ConnectFunction />
+      <ConnectFunction
+        assign={[Function]}
+        hash=""
+        host="localhost"
+        hostname="localhost"
+        href="http://localhost/"
+        origin="http://localhost"
+        pathname="/"
+        port=""
+        protocol="http:"
+        reload={[Function]}
+        replace={[Function]}
+        search=""
+        toString={[Function]}
+      />
     </div>
   </div>
 </div>
@@ -94,7 +108,7 @@ exports[`Authentication should render correctly with Login 2`] = `
 
 exports[`Authentication should render correctly with register 1`] = `
 <div>
-  <Navbar
+  <ConnectFunction
     className="nav-dark"
   />
   <div
@@ -112,7 +126,21 @@ exports[`Authentication should render correctly with register 1`] = `
     <div
       className="right"
     >
-      <ConnectFunction />
+      <ConnectFunction
+        assign={[Function]}
+        hash=""
+        host="localhost"
+        hostname="localhost"
+        href="http://localhost/"
+        origin="http://localhost"
+        pathname="/"
+        port=""
+        protocol="http:"
+        reload={[Function]}
+        replace={[Function]}
+        search=""
+        toString={[Function]}
+      />
     </div>
   </div>
 </div>
