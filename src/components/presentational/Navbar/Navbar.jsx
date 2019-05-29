@@ -9,7 +9,7 @@ import './Navbar.scss';
 import '../Button/Button.scss';
 
 // actions
-import { logout } from '../../../store/modules/auth';
+// import { logout } from '../../../store/modules/auth';
 import { getEncodedUser, getToken } from '../../../api/helpers';
 // import Button from '../Button/Button';
 
