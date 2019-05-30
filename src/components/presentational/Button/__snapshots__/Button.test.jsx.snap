@@ -14,3 +14,17 @@ exports[`Button should render correctly 1`] = `
   </button>
 </Button>
 `;
+
+exports[`Button should render correctly 2`] = `
+<Button
+  className="btn"
+  type="button"
+>
+  <button
+    className="btn btn"
+    type="button"
+  >
+    hey
+  </button>
+</Button>
+`;

@@ -14,4 +14,13 @@ describe('Button', () => {
     );
     expect(component).toMatchSnapshot();
   });
+
+  it('should render correctly', () => {
+    const component = mount(
+      <Button className="btn" type="button" onClick={clickTest()}>
+        hey
+      </Button>,
+    );
+    expect(component).toMatchSnapshot();
+  });
 });

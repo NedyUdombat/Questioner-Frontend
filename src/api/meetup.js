@@ -12,8 +12,8 @@ export const createMeetupRequest = async credentials => {
   return await http.post('/meetups', credentials);
 };
 
-export const editMeetupRequest = async credentials => {
-  return await http.patch('/meetups', credentials);
+export const editMeetupRequest = async (credentials, meetupId) => {
+  return await http.patch(`/meetups/${meetupId}`, credentials);
 };
 
 export const deleteMeetupRequest = async meetupId => {

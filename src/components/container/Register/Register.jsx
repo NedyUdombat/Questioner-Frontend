@@ -65,7 +65,7 @@ export class Register extends React.Component {
           Register
         </p>
         <div className="auth-card">
-          <form onSubmit={this.submitHandler}>
+          <form onSubmit={this.submitHandler} autoComplete="on">
             {isLoading && (
               <Dimmer active>
                 <Loader size="large">Loading</Loader>

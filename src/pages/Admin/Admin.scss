@@ -1,19 +1,18 @@
 
-.admin .product-card {
-  height: 350px;
+.admin.product-card {
+  height: 21.875rem;
   position: relative;
 }
 
-.admin .product-card .card-image-top {
-  background: #f00;
+.admin.product-card .card-image-top {
   height: 60%;
 }
 
-.admin .product-card .product-card-footer {
-  background: #f00;
+.admin.product-card .product-card-footer {
   bottom: 0;
   height: 50px;
   position: absolute;
+  width: 100%;
 }
 
 .choose-image-label {

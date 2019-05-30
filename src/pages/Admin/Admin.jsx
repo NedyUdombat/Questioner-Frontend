@@ -6,10 +6,15 @@ import Navbar from '../../components/presentational/Navbar/Navbar';
 import { DEFAULT_IMAGE_URL } from '../../utils/config';
 import moment from 'moment';
 import Button from '../../components/presentational/Button/Button';
-import { Modal, Image, Dimmer, Loader } from 'semantic-ui-react';
+import { Modal, Image, Dimmer, Loader, Header } from 'semantic-ui-react';
 
 // actions
-import { getAllMeetups, createMeetup } from '../../store/modules/meetup';
+import {
+  getAllMeetups,
+  createMeetup,
+  editMeetup,
+  deleteMeetup,
+} from '../../store/modules/meetup';
 
 import './Admin.scss';
 import Input from '../../components/presentational/Input/Input';
@@ -36,6 +41,15 @@ export class Admin extends Component {
       [e.target.name]: e.target.value,
     });
 
+  setEditState = meetup =>
+    this.setState({
+      topic: meetup.topic,
+      organizerName: meetup.organizer_name,
+      location: meetup.location,
+      image: meetup.image,
+      happeningOn: meetup.happening_on,
+    });
+
   submitHandler = async event => {
     event.preventDefault();
     this.props.createMeetup(
@@ -43,6 +57,19 @@ export class Admin extends Component {
         ...this.state,
       },
       this.props.meetups,
+    );
+
+    this.setState({ ...this.state });
+  };
+
+  editSubmitHandler = id => async event => {
+    event.preventDefault();
+    this.props.editMeetup(
+      {
+        ...this.state,
+      },
+      this.props.meetups,
+      id,
     );
 
     this.setState({ ...this.state });
@@ -68,12 +95,13 @@ export class Admin extends Component {
                   width: 'fit-content',
                   padding: 'auto 5%',
                 }}
+                data-name="create-modal"
               >
                 Create Meetup
               </Button>
             }
             closeIcon
-            size="tiny"
+            size="small"
           >
             <Modal.Content>
               <div
@@ -82,7 +110,11 @@ export class Admin extends Component {
                   paddingTop: '0',
                 }}
               >
-                <form onSubmit={this.submitHandler}>
+                <form
+                  onSubmit={this.submitHandler}
+                  autoComplete="on"
+                  data-name="create"
+                >
                   {isLoading && (
                     <Dimmer active>
                       <Loader size="large">Loading</Loader>
@@ -172,7 +204,7 @@ export class Admin extends Component {
             meetups.map(meetup => (
               <div className="col span_1_of_4" key={meetup.id}>
                 <div className="d-flex justify-content-center">
-                  <div className="product-card">
+                  <div className="admin product-card">
                     <Link to="#">
                       <div className="card-image-top">
                         <Image
@@ -207,30 +239,162 @@ export class Admin extends Component {
                       >
                         <i aria-hidden="true" className="eye icon black" />
                       </Link>
-                      <Button
-                        type="button"
-                        name="button"
-                        className="btn-transparent"
-                        style={{
-                          border: '0',
-                          borderRadius: '0',
-                          background: 'white',
-                        }}
+                      <Modal
+                        trigger={
+                          <Button
+                            type="button"
+                            name="button"
+                            className="btn-transparent"
+                            style={{
+                              border: '0',
+                              borderRadius: '0',
+                              background: 'white',
+                            }}
+                            onClick={() => this.setEditState(meetup)}
+                          >
+                            <i aria-hidden="true" className="edit icon teal" />
+                          </Button>
+                        }
+                        closeIcon
+                        size="small"
                       >
-                        <i aria-hidden="true" className="edit icon teal" />
-                      </Button>
-                      <Button
-                        type="button"
-                        name="button"
-                        className="btn-transparent"
-                        style={{
-                          border: '0',
-                          borderRadius: '0',
-                          background: 'white',
-                        }}
+                        <Modal.Content>
+                          <div
+                            className="auth-card"
+                            style={{
+                              paddingTop: '0',
+                            }}
+                          >
+                            <form
+                              onSubmit={this.editSubmitHandler(meetup.id)}
+                              autoComplete="on"
+                            >
+                              {isLoading && (
+                                <Dimmer active>
+                                  <Loader size="large">Loading</Loader>
+                                </Dimmer>
+                              )}
+                              <div className="form-group">
+                                <div className="input-div d-flex justify-content-center">
+                                  <Input
+                                    onChange={this.onChange}
+                                    className="form-control-input"
+                                    value={this.state.organizerName}
+                                    placeholder={meetup.organizer_name}
+                                    name="organizerName"
+                                    type="text"
+                                  />
+                                </div>
+                                <div className="input-div d-flex justify-content-center">
+                                  <Input
+                                    onChange={this.onChange}
+                                    className="form-control-input"
+                                    value={this.state.topic}
+                                    placeholder={meetup.topic}
+                                    name="topic"
+                                    type="text"
+                                  />
+                                </div>
+                                <div className="input-div d-flex justify-content-center">
+                                  <Input
+                                    onChange={this.onChange}
+                                    className="form-control-input"
+                                    value={this.state.happeningOn}
+                                    name="happeningOn"
+                                    type="date"
+                                  />
+                                </div>
+                                <div className="input-div d-flex justify-content-center">
+                                  <Input
+                                    onChange={this.onChange}
+                                    className="form-control-input"
+                                    value={this.state.location}
+                                    placeholder={meetup.location}
+                                    name="location"
+                                    type="text"
+                                  />
+                                </div>
+                                <div className="input-div d-flex justify-content-center">
+                                  <Input
+                                    onChange={this.onChange}
+                                    className="form-control-input"
+                                    value={this.state.tags}
+                                    placeholder="tags"
+                                    name="tags"
+                                    type="text"
+                                  />
+                                </div>
+                                <div className="input-div d-flex justify-content-center">
+                                  <Input
+                                    onChange={this.onChange}
+                                    className="form-control-input"
+                                    value={this.state.image}
+                                    placeholder="Phone Number"
+                                    name="image"
+                                    type="text"
+                                  />
+                                </div>
+                              </div>
+                              <div
+                                style={{
+                                  marginTop: '.9235rem',
+                                }}
+                              >
+                                <Button
+                                  type="submit"
+                                  value="EDIT"
+                                  className="btn-dark"
+                                />
+                              </div>
+                            </form>
+                          </div>
+                        </Modal.Content>
+                      </Modal>
+                      <Modal
+                        trigger={
+                          <Button
+                            type="button"
+                            name="button"
+                            className="btn-transparent"
+                            style={{
+                              border: '0',
+                              borderRadius: '0',
+                              background: 'white',
+                            }}
+                          >
+                            <i aria-hidden="true" className="trash icon red" />
+                          </Button>
+                        }
+                        size="mini"
+                        closeIcon
                       >
-                        <i aria-hidden="true" className="trash icon red" />
-                      </Button>
+                        {isLoading && (
+                          <Dimmer active>
+                            <Loader />
+                          </Dimmer>
+                        )}
+                        <Header
+                          icon="archive"
+                          content="Are you sure you want to delete this meetup"
+                        />
+                        <Modal.Actions>
+                          <div className="d-flex justify-content-between">
+                            <div>
+                              <Button>Cancel</Button>
+                            </div>
+                            <div>
+                              <Button
+                                className="btn-danger"
+                                onClick={() =>
+                                  this.props.deleteMeetup(meetup.id, meetups)
+                                }
+                              >
+                                Delete
+                              </Button>
+                            </div>
+                          </div>
+                        </Modal.Actions>
+                      </Modal>
                     </div>
                   </div>
                 </div>
@@ -248,6 +412,8 @@ Admin.propTypes = {
   meetups: PropTypes.array,
   isLoading: PropTypes.bool,
   createMeetup: PropTypes.func.isRequired,
+  editMeetup: PropTypes.func.isRequired,
+  deleteMeetup: PropTypes.func.isRequired,
 };
 
 export const mapStateToProps = state => ({
@@ -257,5 +423,5 @@ export const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { getAllMeetups, createMeetup },
+  { getAllMeetups, createMeetup, editMeetup, deleteMeetup },
 )(Admin);
