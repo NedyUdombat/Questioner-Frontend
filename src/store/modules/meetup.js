@@ -1,8 +1,9 @@
 import swal from '@sweetalert/with-react';
 
 import {
-  geUpcomingMeetupsRequest,
+  getUpcomingMeetupsRequest,
   getAllMeetupsRequest,
+  getSingleMeetupRequest,
   createMeetupRequest,
   editMeetupRequest,
   deleteMeetupRequest,
@@ -22,6 +23,9 @@ export const EDIT_MEETUP_ERROR = 'EDIT_MEETUP_ERROR';
 export const DELETE_MEETUP_PROCESS = 'DELETE_MEETUP_PROCESS';
 export const DELETE_MEETUP_SUCCESS = 'DELETE_MEETUP_SUCCESS';
 export const DELETE_MEETUP_ERROR = 'DELETE_MEETUP_ERROR';
+export const GET_SINGLE_MEETUP_PROCESS = 'GET_SINGLE_MEETUP_PROCESS';
+export const GET_SINGLE_MEETUP_SUCCESS = 'GET_SINGLE_MEETUP_SUCCESS';
+export const GET_SINGLE_MEETUP_ERROR = 'GET_SINGLE_MEETUP_ERROR';
 
 export const getUpcomingMeetupsError = error => ({
   type: GET_UPCOMING_MEETUPS_ERROR,
@@ -85,9 +89,23 @@ export const deleteMeetupError = error => ({
   error,
 });
 
+export const getSingleMeetupProcess = () => ({
+  type: GET_SINGLE_MEETUP_PROCESS,
+});
+
+export const getSingleMeetupSuccess = meetup => ({
+  type: GET_SINGLE_MEETUP_SUCCESS,
+  meetup,
+});
+
+export const getSingleMeetupError = error => ({
+  type: GET_SINGLE_MEETUP_ERROR,
+  error,
+});
+
 export const getUpcomingMeetups = () => async dispatch => {
   try {
-    const { data } = await geUpcomingMeetupsRequest();
+    const { data } = await getUpcomingMeetupsRequest();
     return dispatch(getUpcomingMeetupsSuccess(data.data));
   } catch (error) {
     return dispatch(getUpcomingMeetupsError(error));
@@ -176,8 +194,19 @@ export const deleteMeetup = (meetupId, meetups) => async dispatch => {
   }
 };
 
+export const getSingleMeetup = id => async dispatch => {
+  try {
+    dispatch(getSingleMeetupProcess());
+    const { data } = await getSingleMeetupRequest(id);
+    dispatch(getSingleMeetupSuccess(data.data));
+  } catch (error) {
+    dispatch(getSingleMeetupError(error.response.data));
+  }
+};
+
 export const DEFAULT_STATE = {
   meetups: [],
+  meetup: {},
   error: {},
   isLoading: false,
 };
@@ -243,6 +272,23 @@ export const meetupReducer = (state = DEFAULT_STATE, action) => {
         meetups: action.meetups,
       };
     case DELETE_MEETUP_ERROR:
+      return {
+        ...state,
+        error: action.error,
+        isLoading: false,
+      };
+    case GET_SINGLE_MEETUP_PROCESS:
+      return {
+        ...state,
+        isLoading: true,
+      };
+    case GET_SINGLE_MEETUP_SUCCESS:
+      return {
+        ...state,
+        meetup: action.meetup,
+        isLoading: false,
+      };
+    case GET_SINGLE_MEETUP_ERROR:
       return {
         ...state,
         error: action.error,

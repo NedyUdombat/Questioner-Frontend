@@ -10,7 +10,7 @@ import '../Button/Button.scss';
 
 // actions
 // import { logout } from '../../../store/modules/auth';
-import { getEncodedUser, getToken } from '../../../api/helpers';
+import { getEncodedUser, getToken, isAdmin } from '../../../api/helpers';
 // import Button from '../Button/Button';
 
 export class Navbar extends React.Component {
@@ -53,6 +53,11 @@ export class Navbar extends React.Component {
               </Fragment>
             ) : (
               <Fragment>
+                {isAdmin() && (
+                  <Link to="/admin" className="btn btn-transparent">
+                    ADMIN
+                  </Link>
+                )}
                 <Link to="/" className="btn btn-transparent">
                   {this.username === null ? '' : `@${this.username.username}`}
                 </Link>

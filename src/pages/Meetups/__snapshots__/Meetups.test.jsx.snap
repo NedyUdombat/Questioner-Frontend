@@ -329,10 +329,10 @@ exports[`Meetups should render correctly with all props 1`] = `
                 className="product-card"
               >
                 <Link
-                  to="#"
+                  to="/meetups/fhwjicgyvufbewf"
                 >
                   <a
-                    href="/"
+                    href="/meetups/fhwjicgyvufbewf"
                     onClick={[Function]}
                   >
                     <div
@@ -558,10 +558,10 @@ exports[`Meetups should render correctly with all props and without image 1`] = 
                 className="product-card"
               >
                 <Link
-                  to="#"
+                  to="/meetups/fhwjicgyvufbewf"
                 >
                   <a
-                    href="/"
+                    href="/meetups/fhwjicgyvufbewf"
                     onClick={[Function]}
                   >
                     <div
@@ -570,12 +570,12 @@ exports[`Meetups should render correctly with all props and without image 1`] = 
                       <Image
                         alt="fr"
                         className="product-image"
-                        src="https://res.cloudinary.com/nedy123/image/upload/v1558200381/demo/image_2.4.png"
+                        src="https://react.semantic-ui.com/images/wireframe/image.png"
                       >
                         <img
                           alt="fr"
                           className="product-image"
-                          src="https://res.cloudinary.com/nedy123/image/upload/v1558200381/demo/image_2.4.png"
+                          src="https://react.semantic-ui.com/images/wireframe/image.png"
                         />
                       </Image>
                     </div>

@@ -161,7 +161,7 @@ describe('reducers', () => {
   it('should return the meetups', () => {
     const action = getUpcomingMeetupsSuccess(meetups);
     const state = meetupReducer(DEFAULT_STATE, action);
-    expect(state.meetup).toEqual(action.meetup);
+    expect(state.meetups).toEqual(action.meetups);
   });
 
   it('should return an error if any on getting a upcoming meetups', () => {
@@ -173,7 +173,7 @@ describe('reducers', () => {
   it('should return the meetups', () => {
     const action = getAllMeetupsSuccess(meetups);
     const state = meetupReducer(DEFAULT_STATE, action);
-    expect(state.meetup).toEqual(action.meetup);
+    expect(state.meetups).toEqual(action.meetups);
   });
 
   it('should return an error if any on getting a upcoming meetups', () => {

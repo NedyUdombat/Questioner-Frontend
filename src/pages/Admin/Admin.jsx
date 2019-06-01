@@ -229,7 +229,7 @@ export class Admin extends Component {
                     </Link>
                     <div className="product-card-footer d-flex justify-content-around align-items-center w-100">
                       <Link
-                        to="/"
+                        to={`/meetups/${meetup.id}`}
                         className="btn btn-transparent"
                         style={{
                           border: '0',
