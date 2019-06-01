@@ -26,7 +26,7 @@ export class Meetups extends React.Component {
               <div className="col span_1_of_4" key={meetup.id}>
                 <div className="d-flex justify-content-center">
                   <div className="product-card">
-                    <Link to="#">
+                    <Link to={`/meetups/${meetup.id}`}>
                       <div className="card-image-top">
                         <Image
                           src={meetup.image || DEFAULT_IMAGE_URL}
